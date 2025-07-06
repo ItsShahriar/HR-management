@@ -1,0 +1,31 @@
+EOF
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+media/
+
+# Static files
+staticfiles/
+project_static/
+
+# Environment variables
+.env
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+EOF

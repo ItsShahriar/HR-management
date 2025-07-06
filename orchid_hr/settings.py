@@ -13,11 +13,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from datetime import timedelta
 import dj_database_url
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -102,12 +103,12 @@ WSGI_APPLICATION = 'orchid_hr.wsgi.app'
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://postgres:nzfZjQcamjgdTeROtMUsTReLmILZcvpY@gondola.proxy.rlwy.net:55555/railway',
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
         conn_max_age=600,
-        conn_health_checks=True,
-)
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
